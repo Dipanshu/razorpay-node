@@ -134,6 +134,17 @@ module.exports = function (api) {
       return api.get({
         url: '/payments/' + paymentId + '/bank_transfer'
       }, callback);
+    },
+    card: function card(paymentId, callback) {
+
+      if (!paymentId) {
+
+        return Promise.reject(ID_REQUIRED_MSG);
+      }
+
+      return api.get({
+        url: '/payments/' + paymentId + '/card'
+      }, callback);
     }
   };
 };
